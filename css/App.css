@@ -1,0 +1,402 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+html {
+    scroll-behavior: smooth;
+}
+body {
+        background-color: rgb(32 32 32 / 94%);
+}
+/* Start Header */
+header {
+    height: 70px;
+    background: -webkit-linear-gradient(top  , black , gray);
+}
+.container {
+    width: 80%;
+    margin: auto;
+}
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 70px;
+}
+.brand {
+    font-size: 35px;
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    /* position: relative; */
+}
+.brand::after {
+    position: absolute;
+    content: "";
+    animation: logo 3s linear forwards;
+    -webkit-animation: logo 3s linear forwards;
+}
+@keyframes logo {
+    0% {
+        content: "";
+}
+    
+    50% {
+        content: "S";
+        color: white;
+        left: 0;
+    }
+    100% {
+        content: "S";
+        left: 130px;
+        color: red;
+    }
+}
+.header-content nav ul {
+    list-style: none;
+    display: flex;
+}
+.header-content nav ul li a {
+    text-decoration: none;
+    font-size: 20px;
+    padding: 10px;
+    color: white;
+    margin: 0 5px;
+        background-color: transparent;
+    border-radius: 5px;
+    box-shadow: 2px 2px 3px black;
+    &:focus {
+        /* color: green; */
+        box-shadow: 2px 2px 10px green;
+    }
+}
+#user_info {
+    display: none;
+}
+/** ///////////////.........جزء الي في الهيدر بتاع العربه والباقي....///// */
+.cart {
+    margin: 0 15px;
+    position: relative;
+}
+.cart i {
+    font-size: 25px;
+    color: #fff;
+    cursor: pointer;
+    /* margin: 0 50px; */
+}
+.cart .badge {
+    display: none;
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background-color: red;
+    color: #fff;
+    text-align: center;
+    top: -10px;
+    right: -10px;
+}
+.veiwProduct {
+    display: none;
+    position: absolute;
+    width: 200px;
+    background-color: rgb(221, 216, 216);
+    transform: translate(-40% , 22px);
+    text-align: center;
+    padding: 10px;
+    outline: 3px solid green;
+    z-index: 5;
+}
+.veiwProduct a {
+    background-color: green;
+    display: block;
+}
+/* End Header */
+/*? //////////////////////////...................section-1.............../////////////////// */
+/* Start section */
+.section-form {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50% , -50%);
+    /* background: -webkit-linear-gradient(top   , black , gray); */
+    background-color: rgba(69, 66, 66, 0.95);
+    text-align: center;
+    padding: 25px;
+    width: 45%;
+    border-radius: 30px;
+    outline: 2px solid #ff000087; 
+}
+.section-form h2 {
+    color: white;
+    margin-bottom: 32px;
+    font-size: 33px;
+    font-style: italic;
+}
+.section-form form input {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    outline: none;
+    caret-color: red;
+    background-color: black;
+    color: white;
+
+}
+.section-form form input:focus {
+    outline: 2px solid white;
+    /* box-shadow: 2px 2px 20px rgb(148, 64, 64); */
+    outline-color: #1081c8;
+    box-shadow: -3px -3px 15px #1081c8;
+    transition: .1s;
+    transition-property: box-shadow;
+}
+.section-form form input[type = "submit"] {
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+}
+.section-form form input[type = "submit"]:hover {
+    cursor: pointer;
+    /* opacity: .5; */
+    background: rgba(0, 0, 0, 0.5);
+} 
+#logout {
+    background-color: #650765c2;
+}
+#user {
+    color: gold;
+    background-color: transparent;
+}
+/* End section */
+/*? ///////////////////////............Start section_card..../////////// */
+/* Start section_card */
+.adders_product {
+    text-align: center;
+    padding: 25px;
+    font-size: 40px;
+    color: white;
+    font-style: italic;
+}
+.products {
+    /* min-width: 50%; */
+    margin-top: 10px;
+    /* box-shadow: 1px 1px 2px red; */
+
+    .product-item {
+            display: flex;
+            outline: 3px solid #ddd;
+            min-height: 160px;
+            margin: 25px 0;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 2px 2px 10px wheat;
+            transition: 1s;
+
+            animation: animated  linear;
+            -webkit-animation: animated  linear;
+            animation-timeline: view();
+            animation-range: entry 0% cover 40%;
+
+            &:hover {
+                    transform: translateY(-5px);
+            }
+}
+
+.product-item img {
+            width: 34%;
+        margin-right: 10px;
+        height: 302px;
+}
+.product-desc {
+    line-height: 40px;
+    margin-left: 140px;
+}
+.product-action {
+    flex: 1;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.product-action .add_to_cart {
+    width: 140px;
+    border: 0;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+    padding: 10px;
+    margin-left: auto;
+            font-weight: bold;
+        border-radius: 5px;
+
+    &:hover {
+        opacity: .8;
+    }
+}
+.product-action i {
+    font-size: 20px;
+    color: #ddd;
+    margin: 5px;
+    cursor: pointer;
+    width: fit-content;
+    margin-left: auto;
+
+    &:hover {
+        color: red;
+    }
+}
+
+}
+.remove {
+        position: relative;
+        margin-top: auto;
+    }
+
+@media(max-width : 667px) {
+    .header-content nav ul li a {
+        font-size: 15px;
+    }
+}
+@media(max-width : 768px){
+    .product-item {
+        /* width: 100%; */
+        height: 300px;
+    }
+    .product-desc {
+        position: absolute;
+        left: -12px;
+    }
+    .product-desc h2 {
+        font-size: 16px;
+        /* width: 220px; */
+    }
+    .product-desc p {
+        font-size: 15px;
+        width: 90%;
+        line-height: 30px;
+    }
+    .product-action i {
+        position: relative;
+    }
+    .brand {
+        margin-right: 15px;
+    }
+    .section-form {
+        width: 80%;
+    }
+    .choose_products {
+        width: 100%;
+        font-size: 33px;
+    }
+
+    @keyframes logo {
+        0% {
+            content: "S";
+            left: 0;
+        }
+        50% {
+            content: "S";
+            left: 0;
+            color: white;
+        }
+        100% {
+            content: "S";
+            left: 23PX;
+            color: red;
+        }
+    }
+}
+
+@media(min-width: 768px) and (max-width : 992px){
+    .product-desc h2 {
+        color: red;
+    }
+    .product-desc {
+        left: 100px;
+    }
+    @keyframes logo {
+        0% {
+            content: "S";
+            left: 0;
+        }
+        50% {
+            content: "S";
+            left: 0;
+            color: white;
+        }
+        100% {
+            content: "S";
+            left: 55PX;
+            color: red;
+        }
+    }
+}
+@keyframes animated {
+    from {
+        /* opacity: 0; */
+        scale: 0;
+        transform: translateX(-100px);
+}
+    to {
+        /* opacity: 1; */
+        scale: 1;
+        transform: translateX(0);
+        
+}
+}
+
+/* End section_card */
+
+/** /////////////////////..........box_بتاع التشفير......./////// */
+.box {
+    position: relative;
+
+    #show {
+        display: none;
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        right: 10px;
+        top: 4px;
+        /* appearance: none;
+        background-color: red;
+        border-radius: 50%;
+        cursor: pointer; */
+
+}
+.eye1 , .eye2 {
+        position: absolute;
+        right: 10px;
+        top: 5px;
+        font-size: 25px;
+        cursor: pointer;
+        color: #ff0000c2;
+}
+.eye1 {
+    display: none;
+}
+#show:checked ~ .eye1 {
+            display: block;
+            color: green;
+        }
+#show:checked ~ .eye2 {
+            display: none;
+            
+        }
+}
+
+
+
+.out {
+    color: #1081c8;
+    position: fixed;
+    bottom: 35px;
+    right: 20px;
+    font-size: 30px;
+    text-decoration: none;
+    z-index: 99;
+    display: none;
+}
